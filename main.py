@@ -70,13 +70,13 @@ def load_spaceship(path, size):
 # RAUMSCHIFFE LADEN
 # ==================================
 ship_images = {
-    "Standardschiff": load_spaceship("assets/ship.png", (55, 60)),
-    "Schiff 2": load_spaceship("assets/ship_1.png", (55, 60)),
-    "Schiff 3": load_spaceship("assets/ship_2.png", (55, 60)),
-    "Schiff 4": load_spaceship("assets/ship_3.png", (55, 60))
+    "Standardschiff": load_spaceship("ship.png", (55, 60)),
+    "Schiff 2": load_spaceship("ship_1.png", (55, 60)),
+    "Schiff 3": load_spaceship("ship_2.png", (55, 60)),
+    "Schiff 4": load_spaceship("ship_3.png", (55, 60))
 }
 
-enemy_image = load_spaceship("assets/enemy.png", (50, 50))
+enemy_image = load_spaceship("enemy.png", (50, 50))
 enemy_image = pygame.transform.rotate(enemy_image, 180)
 
 
@@ -1009,3 +1009,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
+   
