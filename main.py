@@ -250,10 +250,10 @@ def tr(key):
 # SHOP UND RAUMSCHIFFE
 # ==================================
 ships = {
-    "Standardschiff": {"price": 0},
-    "Schiff 2": {"price": 5},
-    "Schiff 3": {"price": 10},
-    "Schiff 4": {"price": 15}
+    "Standardschiff": {"price": 0, "stärke": 1},
+    "Schiff 2": {"price": 5, "stärke": 5},
+    "Schiff 3": {"price": 10, "stärke": 10},
+    "Schiff 4": {"price": 15, "stärke": 15}
 }
 
 owned_ships = ["Standardschiff"]
@@ -382,20 +382,22 @@ def add_explosion(x, y, color):
 def shoot():
     global last_shot
 
+    shoot_width = ships[selected_ship]["stärke"]
+    shoot_height = ships[selected_ship]["stärke"]
+
     now = pygame.time.get_ticks()
 
     if now - last_shot >= 260:
         bullets.append(
             pygame.Rect(
-                player.centerx - 4,
+                player.centerx - shoot_width // 2,
                 player.top - 15,
-                8,
-                20
+                shoot_width,
+                shoot_height // 2
             )
         )
 
         last_shot = now
-
 
 # ==================================
 # TOUCH-STEUERUNG
@@ -1009,6 +1011,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
    
